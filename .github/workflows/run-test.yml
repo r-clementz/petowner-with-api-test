@@ -1,9 +1,10 @@
 name: Run tests 
-
+#Run this workflow when we dev or main changes 
+#because of a push or is about the changed by pull request
 on:
   push:
-    branches: [dev main]
-  pull_request: [dev main]  
+    branches: [dev,main]
+  pull_request: [dev, main]  
 
 jobs:
   api-tests:
@@ -14,7 +15,6 @@ jobs:
       matrix:
         node-version: [14.x]
         
-    
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
